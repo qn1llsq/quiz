@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="homeheader">
+            <a href="index.html"><h1 class="anim1">Movie Quiz</h1></a>
+            <p>Ти впорався із тестом!</p>
+            <a href="tests.html"><p class="perehod">Виберіть інші тести!</p></a>
+        </header>
+
+
+    <script>window.addEventListener('DOMContentLoaded', () => {
+        const resultText = document.getElementById('final-score');
+        const message = document.getElementById('result-message');
+      
+        const score = localStorage.getItem('finalScore');
+      
+        if (score) {
+          resultText.textContent = score;
+          const [correct, total] = score.split('/').map(Number);
+      
+          if (correct >= total * 0.8) {
+            message.textContent = "Чудово! Ви відмінно знаєте матеріал!";
+          } else if (correct >= total * 0.5) {
+            message.textContent = "Непогано! Але є ще куди рости.";
+          } else {
+            message.textContent = "Варто ще трохи повчити.";
+          }
+        }
+      });</script>
+    
+</body>
+<script src="index.js"></script>
+</html>
