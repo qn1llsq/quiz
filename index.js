@@ -190,6 +190,25 @@ const quizData = [
       table.style.display = "none";
     }
   }
+window.addEventListener('DOMContentLoaded', () => {
+        const resultText = document.getElementById('final-score');
+        const message = document.getElementById('result-message');
+      
+        const score = localStorage.getItem('finalScore');
+      
+        if (score) {
+          resultText.textContent = score;
+          const [correct, total] = score.split('/').map(Number);
+      
+          if (correct >= total * 0.8) {
+            message.textContent = "Чудово! Ви відмінно знаєте матеріал!";
+          } else if (correct >= total * 0.5) {
+            message.textContent = "Непогано! Але є ще куди рости.";
+          } else {
+            message.textContent = "Варто ще трохи повчити.";
+          }
+        }
+      });
 
   
 
